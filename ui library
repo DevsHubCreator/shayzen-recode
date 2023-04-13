@@ -1,0 +1,503 @@
+-- // shayzen ui
+
+local uis = game:GetService("UserInputService")
+local rs = game:GetService("RunService")
+local plr = game:GetService("Players").LocalPlayer
+local mouse = plr:GetMouse()
+
+local library = {}
+
+function library:Create()
+	local shayzen = Instance.new("ScreenGui")
+
+	uis.InputBegan:Connect(function(input, interface)
+		if (input.KeyCode == Enum.KeyCode.LeftControl or input.KeyCode == Enum.KeyCode.Insert) then
+			if not interface then
+				shayzen.Enabled = not shayzen.Enabled
+			end
+		end
+	end)
+
+	local Main = Instance.new("Frame")
+	local Outline = Instance.new("Frame")
+	local UIStroke = Instance.new("UIStroke")
+	local UIStroke_2 = Instance.new("UIStroke")
+	local Frame = Instance.new("Frame")
+	local UIStroke_3 = Instance.new("UIStroke")
+
+	local TextButton = Instance.new("TextButton")
+
+	local Tabs = Instance.new("Frame")
+	local UIListLayout = Instance.new("UIListLayout")
+	local UIPadding = Instance.new("UIPadding")
+
+	shayzen.Name = "shayzen"
+	shayzen.Parent = (game:GetService("CoreGui") or gethui())
+	shayzen.ResetOnSpawn = false
+	shayzen.Enabled = true
+
+	Main.Name = "Main"
+	Main.Parent = shayzen
+	Main.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
+	Main.BackgroundTransparency = 0.300
+	Main.BorderSizePixel = 0
+	Main.Position = UDim2.new(0.559969425, 0, 0.0796874985, 0)
+	Main.Size = UDim2.new(0, 537, 0, 557)
+
+	TextButton.Parent = shayzen
+	TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextButton.BackgroundTransparency = 1.000
+	TextButton.BorderSizePixel = 0
+	TextButton.Position = UDim2.new(0.369747907, 0, 0.3515625, 0)
+	TextButton.Size = UDim2.new(0, 1, 0, 0)
+	TextButton.ZIndex = -1
+	TextButton.AutoButtonColor = false
+	TextButton.Modal = true
+	TextButton.Font = Enum.Font.SourceSans
+	TextButton.Text = ""
+	TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+	TextButton.TextSize = 14.000
+
+	Outline.Name = "Outline"
+	Outline.Parent = Main
+	Outline.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Outline.BackgroundTransparency = 0.300
+	Outline.BorderSizePixel = 0
+	Outline.Position = UDim2.new(-0.0125302784, 0, -0.0131368041, 0)
+	Outline.Size = UDim2.new(0, 550, 0, 570)
+	Outline.ZIndex = 0
+
+	UIStroke.Color = Color3.fromRGB(74, 74, 74)
+	UIStroke.LineJoinMode = Enum.LineJoinMode.Miter
+	UIStroke.Thickness = 2.000
+	UIStroke.Transparency = 0.300
+	UIStroke.Parent = Outline
+
+	UIStroke_2.Color = Color3.fromRGB(72, 72, 72)
+	UIStroke_2.LineJoinMode = Enum.LineJoinMode.Miter
+	UIStroke_2.Thickness = 2.000
+	UIStroke_2.Parent = Main
+
+	Tabs.Name = "Tabs"
+	Tabs.Parent = Main
+	Tabs.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	Tabs.BackgroundTransparency = 1.000
+	Tabs.BorderSizePixel = 0
+	Tabs.Position = UDim2.new(0.00931098685, 0, 0, 0)
+	Tabs.Size = UDim2.new(0, 526, 0, 42)
+
+	UIListLayout.Parent = Tabs
+	UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+	UIListLayout.Padding = UDim.new(0, 5)
+
+	UIPadding.Parent = Tabs
+	UIPadding.PaddingLeft = UDim.new(0, 3)
+
+	Frame.Parent = Main
+	Frame.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+	Frame.BorderSizePixel = 0
+	Frame.Position = UDim2.new(0.0204841718, 0, 0.0897666067, 0)
+	Frame.Size = UDim2.new(0, 515, 0, 491)
+
+	UIStroke_3.Color = Color3.fromRGB(34, 34, 34)
+	UIStroke_3.LineJoinMode = Enum.LineJoinMode.Miter
+	UIStroke_3.Thickness = 2.000
+	UIStroke_3.Parent = Frame
+
+	local tabsUtil = {}
+
+	function tabsUtil:CreateTab(name)
+		local uiListOrder = 0
+
+		local Tab = Instance.new("TextButton")
+		local line = Instance.new("Frame")
+		local tabname = Instance.new("TextLabel")
+		local LeftSections = Instance.new("Frame")
+		local UIList = Instance.new("UIListLayout")
+
+		LeftSections.Name = "LeftSections"
+		LeftSections.Parent = Frame
+		LeftSections.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		LeftSections.BackgroundTransparency = 1.000
+		LeftSections.BorderSizePixel = 0
+		LeftSections.Position = UDim2.new(0.0291262139, 0, 0.036659874, 0)
+		LeftSections.Size = UDim2.new(0, 240, 0, 454)
+
+		UIList.Parent = LeftSections
+		UIList.FillDirection = Enum.FillDirection.Vertical
+		UIList.SortOrder = Enum.SortOrder.LayoutOrder
+		UIList.VerticalAlignment = Enum.VerticalAlignment.Top
+		UIList.Padding = UDim.new(0, 10)
+
+		Tab.Name = "Tab"
+		Tab.Parent = Tabs
+		Tab.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+		Tab.BackgroundTransparency = 1.000
+		Tab.BorderSizePixel = 0
+		Tab.Position = UDim2.new(0.0152091254, 0, 0.176500052, 0)
+		Tab.Size = UDim2.new(0, 70, 0, 27)
+		Tab.AutoButtonColor = false
+		Tab.Font = Enum.Font.SourceSans
+		Tab.Text = ""
+		Tab.TextColor3 = Color3.fromRGB(0, 0, 0)
+		Tab.TextSize = 14.000
+
+		line.Name = "line"
+		line.Parent = Tab
+		line.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+		line.BorderSizePixel = 0
+		line.Position = UDim2.new(-1.31605993e-05, 0, 0.993133605, 0)
+		line.Size = UDim2.new(0, 70, 0, 3)
+
+		tabname.Name = name
+		tabname.Parent = Tab
+		tabname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		tabname.BackgroundTransparency = 1.000
+		tabname.BorderSizePixel = 0
+		tabname.Position = UDim2.new(0.150615275, 0, 0.25747776, 0)
+		tabname.Size = UDim2.new(0, 49, 0, 13)
+		tabname.Font = Enum.Font.Arial
+		tabname.Text = name
+		tabname.TextColor3 = Color3.fromRGB(216, 216, 216)
+		tabname.TextSize = 14.000
+
+		local sectionsUtil = {}
+
+		function sectionsUtil:CreateSection(name)
+			local sectionSizeY = 0
+
+			local Section = Instance.new("Frame")
+			local UIStroke_4 = Instance.new("UIStroke")
+			local sectionname = Instance.new("TextLabel")
+			local UIPadding_2 = Instance.new("UIPadding")
+			local UIListLayout_2 = Instance.new("UIListLayout")
+
+			Section.Name = "Section"
+			Section.Parent = LeftSections
+			Section.AnchorPoint = Vector2.new(0.5, 0.5)
+			Section.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+			Section.BorderSizePixel = 0
+			Section.ClipsDescendants = true
+			Section.Position = UDim2.new(0.504166663, 0, 0.0363436118, 0)
+			Section.Size = UDim2.new(0, 239, 0, 0)
+			Section.Visible = false
+			Section.LayoutOrder = 1 + uiListOrder
+
+			UIStroke_4.Color = Color3.fromRGB(31, 31, 31)
+			UIStroke_4.LineJoinMode = Enum.LineJoinMode.Miter
+			UIStroke_4.Thickness = 2.000
+			UIStroke_4.Parent = Section
+
+			sectionname.Name = name
+			sectionname.Parent = LeftSections
+			sectionname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			sectionname.BackgroundTransparency = 1.000
+			sectionname.BorderSizePixel = 0
+			sectionname.Position = UDim2.new(0.0474999994, 0, -0.0167444944, 0)
+			sectionname.Size = UDim2.new(0, 150, 0, 16)
+			sectionname.Font = Enum.Font.Arial
+			sectionname.Text = name
+			sectionname.TextColor3 = Color3.fromRGB(255, 255, 255)
+			sectionname.TextSize = 14.000
+			sectionname.TextXAlignment = Enum.TextXAlignment.Left
+			sectionname.LayoutOrder = 0 + uiListOrder
+			sectionname.Visible = false
+
+			UIPadding_2.Parent = Section
+			UIPadding_2.PaddingLeft = UDim.new(0, 8)
+			UIPadding_2.PaddingTop = UDim.new(0, 5)
+
+			UIListLayout_2.Parent = Section
+			UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+			UIListLayout_2.Padding = UDim.new(0, 6) 
+
+			uiListOrder += 1
+
+			Tab.MouseButton1Click:Connect(function()
+				for i, v in pairs(Tabs:GetChildren()) do
+					if v:IsA("GuiObject") then
+						v.Visible = false
+						v.line.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+					end
+				end
+				for i,v in pairs(LeftSections:GetChildren()) do
+					if v:IsA("GuiObject") then
+						v.Visible = false
+					end
+				end
+				Tab.Visible = true
+				line.BackgroundColor3 = Color3.fromRGB(0, 102, 255)
+
+				Section.Visible = true
+				sectionname.Visible = true
+			end)
+
+			local featuresUtil = {}
+
+			function featuresUtil:CreateToggle(name, callback)
+				sectionSizeY += 21
+				Section.Size = UDim2.new(0, 239, 0, sectionSizeY)
+
+				name = name or "toggle"
+				callback = callback or function() end
+
+				local toggle = Instance.new("TextButton")
+				local bar = Instance.new("Frame")
+				local UIStroke_5 = Instance.new("UIStroke")
+				local UIGradient = Instance.new("UIGradient")
+				local togglename = Instance.new("TextLabel")
+
+				toggle.Name = "toggle"
+				toggle.Parent = Section
+				toggle.AnchorPoint = Vector2.new(0.5, 0.5)
+				toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+				toggle.BackgroundTransparency = 1.000
+				toggle.BorderSizePixel = 0
+				toggle.Position = UDim2.new(0.502092063, 0, 0.23499985, 0)
+				toggle.Size = UDim2.new(0, 216, 0, 14)
+				toggle.Font = Enum.Font.SourceSans
+				toggle.Text = ""
+				toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+				toggle.TextSize = 14.000
+
+				bar.Name = "bar"
+				bar.Parent = toggle
+				bar.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+				bar.BorderSizePixel = 0
+				bar.Position = UDim2.new(0.0178611465, 0, 0.125004768, 0)
+				bar.Size = UDim2.new(0, 10, 0, 9)
+
+				UIStroke_5.Parent = bar
+
+				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(159, 159, 159))}
+				UIGradient.Rotation = 90
+				UIGradient.Parent = bar
+
+				togglename.Name = name
+				togglename.Parent = toggle
+				togglename.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				togglename.BackgroundTransparency = 1.000
+				togglename.BorderSizePixel = 0
+				togglename.Position = UDim2.new(0.0990255624, 0, 0.157999992, 0)
+				togglename.Size = UDim2.new(0, 194, 0, 9)
+				togglename.Font = Enum.Font.Arial
+				togglename.Text = name
+				togglename.TextColor3 = Color3.fromRGB(255, 255, 255)
+				togglename.TextSize = 14.000
+				togglename.TextXAlignment = Enum.TextXAlignment.Left                
+
+				local debounce = false
+
+				toggle.MouseButton1Click:Connect(function()
+					debounce = not debounce
+					callback(debounce)
+
+					local color = debounce and Color3.fromRGB(0, 110, 255) or Color3.fromRGB(36, 36, 36)
+					bar.BackgroundColor3 = color
+				end)
+			end
+
+			function featuresUtil:CreateButton(name, callback)
+				sectionSizeY += 24
+				Section.Size = UDim2.new(0, 239, 0, sectionSizeY)
+
+				name = name or "button"
+				callback = callback or function() end
+
+				local button = Instance.new("TextButton")
+				local buttonname = Instance.new("TextLabel")
+				local UIGradient = Instance.new("UIGradient")
+				local UIStroke = Instance.new("UIStroke")
+
+				button.Name = "button"
+				button.Parent = Section
+				button.AnchorPoint = Vector2.new(0.5, 0.5)
+				button.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+				button.BorderSizePixel = 0
+				button.Position = UDim2.new(0.5, 0, 0.74444443, 0)
+				button.Size = UDim2.new(0, 223, 0, 17)
+				button.Font = Enum.Font.SourceSans
+				button.Text = ""
+				button.TextColor3 = Color3.fromRGB(0, 0, 0)
+				button.TextSize = 14.000
+
+				buttonname.Name = name
+				buttonname.Parent = button
+				buttonname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				buttonname.BackgroundTransparency = 1.000
+				buttonname.BorderSizePixel = 0
+				buttonname.Position = UDim2.new(0.0160000008, 0, 0.216823533, 0)
+				buttonname.Size = UDim2.new(0, 194, 0, 9)
+				buttonname.Font = Enum.Font.Arial
+				buttonname.Text = name
+				buttonname.TextColor3 = Color3.fromRGB(255, 255, 255)
+				buttonname.TextSize = 14.000
+				buttonname.TextXAlignment = Enum.TextXAlignment.Left
+
+				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(245, 245, 245)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(172, 172, 172))}
+				UIGradient.Rotation = 90
+				UIGradient.Parent = button
+
+				UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+				UIStroke.Parent = button
+
+				button.MouseButton1Click:Connect(function()
+					callback()
+				end)
+			end
+			
+			function featuresUtil:CreateSlider(name, minVal, maxVal, callback)
+				sectionSizeY += 31
+				Section.Size = UDim2.new(0, 239, 0, sectionSizeY)
+				
+				name = name or "slider"
+				minVal = minVal or 1
+				maxVal = maxVal or 10
+				callback = callback or function() end
+				
+				local sliding = false
+				
+				local Slider = Instance.new("Frame")
+				local bg = Instance.new("Frame")
+				local UIStroke = Instance.new("UIStroke")
+				local UIGradient = Instance.new("UIGradient")
+				local slide = Instance.new("Frame")
+				local UIStroke_2 = Instance.new("UIStroke")
+				local UIGradient_2 = Instance.new("UIGradient")
+				local sliderUtil = Instance.new("TextButton")
+				local slidername = Instance.new("TextLabel")
+				local slidervalue = Instance.new("TextLabel")
+				
+				Slider.Name = "Slider"
+				Slider.Parent = Section
+				Slider.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+				Slider.BackgroundTransparency = 1.000
+				Slider.BorderSizePixel = 0
+				Slider.Size = UDim2.new(0, 216, 0, 14)
+
+				bg.Name = "bg"
+				bg.Parent = Slider
+				bg.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+				bg.BorderSizePixel = 0
+				bg.Position = UDim2.new(0.0179999992, 0, 1.10000002, 0)
+				bg.Size = UDim2.new(0, 218, 0, 9)
+
+				UIStroke.Parent = bg
+
+				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(159, 159, 159))}
+				UIGradient.Rotation = 90
+				UIGradient.Parent = bg
+
+				slide.Name = "slide"
+				slide.Parent = bg
+				slide.BackgroundColor3 = Color3.fromRGB(0, 102, 255)
+				slide.BorderSizePixel = 0
+				slide.Position = UDim2.new(-0.000348572154, 0, -0.0111117894, 0)
+				slide.Size = UDim2.new(0, 48, 0, 9)
+
+				UIStroke_2.Parent = slide
+
+				UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(159, 159, 159))}
+				UIGradient_2.Rotation = 90
+				UIGradient_2.Parent = slide
+
+				sliderUtil.Name = "sliderUtil"
+				sliderUtil.Parent = bg
+				sliderUtil.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				sliderUtil.BackgroundTransparency = 1.000
+				sliderUtil.BorderSizePixel = 0
+				sliderUtil.Position = UDim2.new(0, 0, -0.0109998919, 0)
+				sliderUtil.Size = UDim2.new(0, 220, 0, 9)
+				sliderUtil.AutoButtonColor = false
+				sliderUtil.Font = Enum.Font.SourceSans
+				sliderUtil.Text = ""
+				sliderUtil.TextColor3 = Color3.fromRGB(0, 0, 0)
+				sliderUtil.TextSize = 14.000
+
+				slidername.Name = name
+				slidername.Parent = Slider
+				slidername.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				slidername.BackgroundTransparency = 1.000
+				slidername.BorderSizePixel = 0
+				slidername.Position = UDim2.new(0.0156922508, 0, 0.158000395, 0)
+				slidername.Size = UDim2.new(0, 67, 0, 9)
+				slidername.Font = Enum.Font.Arial
+				slidername.Text = name
+				slidername.TextColor3 = Color3.fromRGB(255, 255, 255)
+				slidername.TextSize = 14.000
+				slidername.TextXAlignment = Enum.TextXAlignment.Left
+				
+				slidervalue.Name = "slidervalue"
+				slidervalue.Parent = bg
+				slidervalue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				slidervalue.BackgroundTransparency = 1.000
+				slidervalue.BorderSizePixel = 0
+				slidervalue.Position = UDim2.new(0.345967412, 0, -0.0642225444, 0)
+				slidervalue.Size = UDim2.new(0, 67, 0, 9)
+				slidervalue.Font = Enum.Font.Arial
+				slidervalue.Text = tostring(minVal.."/"..maxVal)
+				slidervalue.TextColor3 = Color3.fromRGB(255, 255, 255)
+				slidervalue.TextSize = 11.000
+				
+				local conStart
+				local conEnded
+				
+				sliderUtil.MouseButton1Down:Connect(function()
+					local mousePos = uis:GetMouseLocation().X
+					local sliderSize = sliderUtil.AbsoluteSize.X
+					local sliderPos = sliderUtil.AbsolutePosition.X
+					local per = math.clamp((mousePos - sliderPos), 0, 220)
+					slide.Size = UDim2.new(0, per, 0, 9)
+
+					local return_value = (((tonumber(maxVal) - tonumber(minVal)) / 220) * slide.AbsoluteSize.X) + tonumber(minVal)
+					local c = string.len(math.floor(return_value)) + 2
+					
+					callback(string.sub(return_value, 1, c))
+					slidervalue.Text = tostring(string.sub(return_value, 1, c).."/"..maxVal)
+					
+					conStart = mouse.Move:Connect(function()
+						local mousePos = uis:GetMouseLocation().X
+						local sliderSize = sliderUtil.AbsoluteSize.X
+						local sliderPos = sliderUtil.AbsolutePosition.X
+						local per = math.clamp((mousePos - sliderPos), 0, 220)
+						slide.Size = UDim2.new(0, per, 0, 9)
+						
+						local return_value = (((tonumber(maxVal) - tonumber(minVal)) / 220) * slide.AbsoluteSize.X) + tonumber(minVal)
+						local c = string.len(math.floor(return_value)) + 2
+						callback(string.sub(return_value, 1, c))
+						slidervalue.Text = tostring(string.sub(return_value, 1, c).."/"..maxVal)
+					end)
+					conEnded = uis.InputEnded:Connect(function(Mouse)
+						if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
+							conStart:Disconnect()
+							conEnded:Disconnect()
+						end
+					end)
+				end)
+			end
+
+			return featuresUtil
+		end
+
+		return sectionsUtil
+	end
+
+	return tabsUtil
+end
+--[[
+local window = library:Create()
+local tab = window:CreateTab("rage")
+local section = tab:CreateSection("aimbot")
+section:CreateToggle("auto-fire",function(value)
+	print(value)
+end)
+section:CreateButton("kill all",function()
+	print("clicked")
+end)
+section:CreateSlider("min damage", 0, 100,function(value)
+	print(value)
+end)]]
+
+return library
