@@ -11,7 +11,7 @@ function library:Create()
 	local shayzen = Instance.new("ScreenGui")
 
 	uis.InputBegan:Connect(function(input, interface)
-		if (input.KeyCode == Enum.KeyCode.LeftControl or input.KeyCode == Enum.KeyCode.Insert) then
+		if (input.KeyCode == Enum.KeyCode.RightControl or input.KeyCode == Enum.KeyCode.Insert) then
 			if not interface then
 				shayzen.Enabled = not shayzen.Enabled
 			end
@@ -116,6 +116,8 @@ function library:Create()
 		local tabname = Instance.new("TextLabel")
 		local LeftSections = Instance.new("Frame")
 		local UIList = Instance.new("UIListLayout")
+		local RightSections = Instance.new("Frame")
+		local UIList2 = Instance.new("UIListLayout")
 
 		LeftSections.Name = "LeftSections"
 		LeftSections.Parent = Frame
@@ -130,6 +132,18 @@ function library:Create()
 		UIList.SortOrder = Enum.SortOrder.LayoutOrder
 		UIList.VerticalAlignment = Enum.VerticalAlignment.Top
 		UIList.Padding = UDim.new(0, 10)
+
+		RightSections.Name = "RightSections"
+		RightSections.Parent = Frame
+		RightSections.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		RightSections.BackgroundTransparency = 1.000
+		RightSections.BorderSizePixel = 0
+		RightSections.Position = UDim2.new(0.506796122, 0, 0.036659874, 0)
+		RightSections.Size = UDim2.new(0, 240, 0, 454)
+		
+		UIList2.Parent = RightSections
+		UIList2.SortOrder = Enum.SortOrder.LayoutOrder
+		UIList2.Padding = UDim.new(0, 10)
 
 		Tab.Name = "Tab"
 		Tab.Parent = Tabs
@@ -165,8 +179,9 @@ function library:Create()
 
 		local sectionsUtil = {}
 
-		function sectionsUtil:CreateSection(name)
+		function sectionsUtil:CreateSection(name, side)
 			local sectionSizeY = 0
+			side = side or "left"
 
 			local Section = Instance.new("Frame")
 			local UIStroke_4 = Instance.new("UIStroke")
@@ -175,7 +190,7 @@ function library:Create()
 			local UIListLayout_2 = Instance.new("UIListLayout")
 
 			Section.Name = "Section"
-			Section.Parent = LeftSections
+			Section.Parent = side == "left" and LeftSections or side == "right" and RightSections
 			Section.AnchorPoint = Vector2.new(0.5, 0.5)
 			Section.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
 			Section.BorderSizePixel = 0
@@ -349,7 +364,7 @@ function library:Create()
 			end
 			
 			function featuresUtil:CreateSlider(name, minVal, maxVal, callback)
-				sectionSizeY += 31
+				sectionSizeY += 33
 				Section.Size = UDim2.new(0, 239, 0, sectionSizeY)
 				
 				name = name or "slider"
@@ -375,13 +390,13 @@ function library:Create()
 				Slider.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 				Slider.BackgroundTransparency = 1.000
 				Slider.BorderSizePixel = 0
-				Slider.Size = UDim2.new(0, 216, 0, 14)
+				Slider.Size = UDim2.new(0, 216, 0, 30)
 
 				bg.Name = "bg"
 				bg.Parent = Slider
 				bg.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
 				bg.BorderSizePixel = 0
-				bg.Position = UDim2.new(0.0179999992, 0, 1.10000002, 0)
+				bg.Position = UDim2.new(0.018, 0, 0.6, 0)
 				bg.Size = UDim2.new(0, 218, 0, 9)
 
 				UIStroke.Parent = bg
