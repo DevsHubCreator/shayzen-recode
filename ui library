@@ -181,7 +181,6 @@ function library:Create()
 
 		function sectionsUtil:CreateSection(name, side)
 			local sectionSizeY = 0
-			side = side or "left"
 
 			local Section = Instance.new("Frame")
 			local UIStroke_4 = Instance.new("UIStroke")
@@ -515,7 +514,7 @@ section:CreateButton("kill all", function()
 	print("clicked")
 end)
 section:CreateSlider("min damage", 0, 100, function(value)
-	print(value)
+	5print(value)
 end)]]
 
 return library
