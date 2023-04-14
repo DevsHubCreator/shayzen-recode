@@ -206,7 +206,7 @@ function library:Create()
 			UIStroke_4.Parent = Section
 
 			sectionname.Name = name
-			sectionname.Parent = LeftSections
+			sectionname.Parent = side == "left" and LeftSections or side == "right" and RightSections
 			sectionname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			sectionname.BackgroundTransparency = 1.000
 			sectionname.BorderSizePixel = 0
@@ -237,6 +237,11 @@ function library:Create()
 					end
 				end
 				for i,v in pairs(LeftSections:GetChildren()) do
+					if v:IsA("GuiObject") then
+						v.Visible = false
+					end
+				end
+				for i,v in pairs(RightSections:GetChildren()) do
 					if v:IsA("GuiObject") then
 						v.Visible = false
 					end
@@ -502,7 +507,7 @@ end
 --[[
 local window = library:Create()
 local tab = window:CreateTab("rage")
-local section = tab:CreateSection("aimbot", left)
+local section = tab:CreateSection("aimbot", "left")
 section:CreateToggle("auto-fire", function(value)
 	print(value)
 end)
