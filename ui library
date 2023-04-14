@@ -233,7 +233,6 @@ function library:Create()
 			Tab.MouseButton1Click:Connect(function()
 				for i, v in pairs(Tabs:GetChildren()) do
 					if v:IsA("GuiObject") then
-						v.Visible = false
 						v.line.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
 					end
 				end
@@ -242,7 +241,6 @@ function library:Create()
 						v.Visible = false
 					end
 				end
-				Tab.Visible = true
 				line.BackgroundColor3 = Color3.fromRGB(0, 102, 255)
 
 				Section.Visible = true
@@ -504,14 +502,14 @@ end
 --[[
 local window = library:Create()
 local tab = window:CreateTab("rage")
-local section = tab:CreateSection("aimbot")
-section:CreateToggle("auto-fire",function(value)
+local section = tab:CreateSection("aimbot", left)
+section:CreateToggle("auto-fire", function(value)
 	print(value)
 end)
-section:CreateButton("kill all",function()
+section:CreateButton("kill all", function()
 	print("clicked")
 end)
-section:CreateSlider("min damage", 0, 100,function(value)
+section:CreateSlider("min damage", 0, 100, function(value)
 	print(value)
 end)]]
 
