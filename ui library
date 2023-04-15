@@ -30,8 +30,6 @@ function library:Create()
 	local Tabs = Instance.new("Frame")
 	local UIListLayout = Instance.new("UIListLayout")
 	local UIPadding = Instance.new("UIPadding")
-	
-
 
 	shayzen.Name = "shayzen"
 	shayzen.Parent = (game:GetService("CoreGui") or gethui())
@@ -695,9 +693,11 @@ function library:Create()
 				local UIGradent = Instance.new("UIGradient")
 				local Action = Instance.new("TextButton")
 				local colorpickername = Instance.new("TextLabel")
-				
+
+				--Properties:
+
 				colorpicker.Name = "colorpicker"
-				colorpicker.Parent = Section
+				colorpicker.Parent = StarterGui.shayzen.Main.Frame.LeftSections.Section
 				colorpicker.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
 				colorpicker.BackgroundTransparency = 1.000
 				colorpicker.BorderSizePixel = 0
@@ -727,6 +727,7 @@ function library:Create()
 				ColorUI.Position = UDim2.new(0, 0, 1, 0)
 				ColorUI.Size = UDim2.new(0, 221, 0, 90)
 				ColorUI.Visible = false
+				ColorUI.ZIndex = 2
 
 				ColorPickers.Name = "ColorPickers"
 				ColorPickers.Parent = ColorUI
@@ -734,6 +735,7 @@ function library:Create()
 				ColorPickers.BackgroundTransparency = 1.000
 				ColorPickers.Position = UDim2.new(-0.00180122757, 0, -0.00353766559, 0)
 				ColorPickers.Size = UDim2.new(0, 221, 0, 90)
+				ColorPickers.ZIndex = 2
 
 				Horizontal.Name = "Horizontal"
 				Horizontal.Parent = ColorPickers
@@ -743,12 +745,14 @@ function library:Create()
 				Horizontal.BorderSizePixel = 0
 				Horizontal.Position = UDim2.new(0.44618395, 0, 0.50081104, 0)
 				Horizontal.Size = UDim2.new(0, 197, 0, 90)
+				Horizontal.ZIndex = 2
 
 				ColorPickerArea.Name = "ColorPickerArea"
 				ColorPickerArea.Parent = Horizontal
 				ColorPickerArea.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				ColorPickerArea.Position = UDim2.new(0.0199999996, 0, 0.0379999988, 0)
 				ColorPickerArea.Size = UDim2.new(0, 199, 0, 83)
+				ColorPickerArea.ZIndex = 2
 				ColorPickerArea.AutoButtonColor = false
 				ColorPickerArea.Font = Enum.Font.SourceSans
 				ColorPickerArea.Text = ""
@@ -762,6 +766,7 @@ function library:Create()
 				Picker.BorderColor3 = Color3.fromRGB(27, 42, 53)
 				Picker.BorderSizePixel = 0
 				Picker.Size = UDim2.new(0, 3, 0, 83)
+				Picker.ZIndex = 2
 
 				UICorner.CornerRadius = UDim.new(1, 0)
 				UICorner.Parent = Picker
@@ -777,6 +782,7 @@ function library:Create()
 				RGBInput.Position = UDim2.new(0.434999973, 0, 0.94911629, 0)
 				RGBInput.Size = UDim2.new(0, 163, 0, 9)
 				RGBInput.Visible = false
+				RGBInput.ZIndex = 2
 
 				UICorner_2.CornerRadius = UDim.new(0.5, 0)
 				UICorner_2.Parent = RGBInput
@@ -787,6 +793,7 @@ function library:Create()
 				R.BackgroundTransparency = 1.000
 				R.BorderSizePixel = 0
 				R.Size = UDim2.new(0, 54, 0, 9)
+				R.ZIndex = 2
 
 				ColorName.Name = "ColorName"
 				ColorName.Parent = R
@@ -796,6 +803,7 @@ function library:Create()
 				ColorName.BorderSizePixel = 0
 				ColorName.Position = UDim2.new(0, 0, 0.5, 0)
 				ColorName.Size = UDim2.new(0, 14, 0, 7)
+				ColorName.ZIndex = 2
 				ColorName.Font = Enum.Font.SourceSans
 				ColorName.Text = "R"
 				ColorName.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -810,6 +818,7 @@ function library:Create()
 				ValueBox.BorderSizePixel = 0
 				ValueBox.Position = UDim2.new(0.25, 0, 0.5, 0)
 				ValueBox.Size = UDim2.new(0, 41, 0, 7)
+				ValueBox.ZIndex = 2
 				ValueBox.Font = Enum.Font.SourceSans
 				ValueBox.Text = "0"
 				ValueBox.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -827,6 +836,7 @@ function library:Create()
 				G.BorderSizePixel = 0
 				G.Position = UDim2.new(0.330000013, 0, 0, 0)
 				G.Size = UDim2.new(0, 54, 0, 9)
+				G.ZIndex = 2
 
 				ColorName_2.Name = "ColorName"
 				ColorName_2.Parent = G
@@ -836,6 +846,7 @@ function library:Create()
 				ColorName_2.BorderSizePixel = 0
 				ColorName_2.Position = UDim2.new(0, 0, 0.5, 0)
 				ColorName_2.Size = UDim2.new(0, 13, 0, 7)
+				ColorName_2.ZIndex = 2
 				ColorName_2.Font = Enum.Font.SourceSans
 				ColorName_2.Text = "G"
 				ColorName_2.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -850,6 +861,7 @@ function library:Create()
 				ValueBox_2.BorderSizePixel = 0
 				ValueBox_2.Position = UDim2.new(0.25, 0, 0.5, 0)
 				ValueBox_2.Size = UDim2.new(0, 40, 0, 7)
+				ValueBox_2.ZIndex = 2
 				ValueBox_2.Font = Enum.Font.SourceSans
 				ValueBox_2.Text = "0"
 				ValueBox_2.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -867,6 +879,7 @@ function library:Create()
 				B.BorderSizePixel = 0
 				B.Position = UDim2.new(0.660000026, 0, 0, 0)
 				B.Size = UDim2.new(0, 54, 0, 9)
+				B.ZIndex = 2
 
 				ColorName_3.Name = "ColorName"
 				ColorName_3.Parent = B
@@ -876,6 +889,7 @@ function library:Create()
 				ColorName_3.BorderSizePixel = 0
 				ColorName_3.Position = UDim2.new(0, 0, 0.5, 0)
 				ColorName_3.Size = UDim2.new(0, 13, 0, 7)
+				ColorName_3.ZIndex = 2
 				ColorName_3.Font = Enum.Font.SourceSans
 				ColorName_3.Text = "B"
 				ColorName_3.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -890,6 +904,7 @@ function library:Create()
 				ValueBox_3.BorderSizePixel = 0
 				ValueBox_3.Position = UDim2.new(0.25, 0, 0.5, 0)
 				ValueBox_3.Size = UDim2.new(0, 40, 0, 7)
+				ValueBox_3.ZIndex = 2
 				ValueBox_3.Font = Enum.Font.SourceSans
 				ValueBox_3.Text = "0"
 				ValueBox_3.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -912,6 +927,7 @@ function library:Create()
 				Vertical.BorderSizePixel = 0
 				Vertical.Position = UDim2.new(0.927431822, 0, 0.499000013, 0)
 				Vertical.Size = UDim2.new(0, 24, 0, 83)
+				Vertical.ZIndex = 2
 
 				ColorPickerArea_2.Name = "ColorPickerArea"
 				ColorPickerArea_2.Parent = Vertical
@@ -919,6 +935,7 @@ function library:Create()
 				ColorPickerArea_2.BorderSizePixel = 0
 				ColorPickerArea_2.Position = UDim2.new(0.596000016, 0, 0.00100000005, 0)
 				ColorPickerArea_2.Size = UDim2.new(0, 14, 0, 83)
+				ColorPickerArea_2.ZIndex = 2
 				ColorPickerArea_2.AutoButtonColor = false
 				ColorPickerArea_2.Font = Enum.Font.SourceSans
 				ColorPickerArea_2.Text = ""
@@ -932,6 +949,7 @@ function library:Create()
 				Picker_2.BorderSizePixel = 0
 				Picker_2.Position = UDim2.new(0, 0, 0.5, 0)
 				Picker_2.Size = UDim2.new(0, 14, 0, 1)
+				Picker_2.ZIndex = 2
 
 				UICorner_7.CornerRadius = UDim.new(1, 0)
 				UICorner_7.Parent = Picker_2
@@ -950,7 +968,7 @@ function library:Create()
 				Action.Text = ""
 				Action.TextColor3 = Color3.fromRGB(0, 0, 0)
 				Action.TextSize = 14.000
-				
+
 				colorpickername.Name = name
 				colorpickername.Parent = colorpicker
 				colorpickername.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -963,6 +981,7 @@ function library:Create()
 				colorpickername.TextColor3 = Color3.fromRGB(255, 255, 255)
 				colorpickername.TextSize = 14.000
 				colorpickername.TextXAlignment = Enum.TextXAlignment.Left
+
 				
 				local fake_module_scripts = {}
 
