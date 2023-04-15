@@ -694,10 +694,8 @@ function library:Create()
 				local Action = Instance.new("TextButton")
 				local colorpickername = Instance.new("TextLabel")
 
-				--Properties:
-
 				colorpicker.Name = "colorpicker"
-				colorpicker.Parent = StarterGui.shayzen.Main.Frame.LeftSections.Section
+				colorpicker.Parent = Section
 				colorpicker.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
 				colorpicker.BackgroundTransparency = 1.000
 				colorpicker.BorderSizePixel = 0
