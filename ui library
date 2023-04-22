@@ -650,7 +650,7 @@ function library:Create()
 			end
 			
 			function featuresUtil:CreateColorPicker(name, startColor, callback)
-				sectionSizeY += 20
+				sectionSizeY += 23
 				Section.Size = UDim2.new(0, 239, 0, sectionSizeY)
 				
 				name = name or "colorpicker"
